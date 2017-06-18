@@ -1,6 +1,14 @@
 <h1>New Product</h1>
 <p>
 	<%= form_for @product do |f| %>
+<% if @product.errors.any? %>
+	<p>There were <%= pluralize(@product.errors.count, 'error') %>  with your submission. Please revisit your input and try again. These were the issues:</p>
+	<ul>
+		<% @product.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+	</ul>
+<% end %>
 <div>
 	<%= f.label :title %>
 	<br>
