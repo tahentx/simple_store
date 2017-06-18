@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'products/update'
 
-  get 'products/destroy'
+  delete 'products/:id', to: 'products#destroy', as: 'delete_product'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
